@@ -1,10 +1,10 @@
 ## Project Title
 # Swiggy-food-delivery-sales-and-top-selling-foods-dashboard
 ### Dashboard Link :
-## Problem Statement
+# Problem Statement
 The goal of this project is to analyze Swiggy’s food delivery data and develop an interactive Power BI dashboard that provides key business insights for data-driven decision-making. The dashboard should visually represent the overall performance of restaurants, user preferences, and city-wise sales patterns through various KPIs and visualizations.
 
-## Objectives
+# Objectives
 1.Build a comprehensive Power BI dashboard for Swiggy Food Delivery Data Analysis.
 
 2.Display Key Performance Indicators (KPIs) such as:
@@ -33,7 +33,7 @@ The goal of this project is to analyze Swiggy’s food delivery data and develop
 
 4. Identify business opportunities by comparing restaurant performance, customer preferences, and sales distribution.
 
-## Tools & Technologies
+# Tools & Technologies
 
 Power BI – Data visualization & dashboard creation
 
@@ -42,6 +42,8 @@ Excel / CSV Dataset – Raw Swiggy delivery data
 Power Query – Data cleaning and transformation
 
 DAX – KPI calculations and custom measures
+
+#Steps followed
 
 
 
