@@ -43,8 +43,49 @@ Power Query – Data cleaning and transformation
 
 DAX – KPI calculations and custom measures
 
-#Steps followed
+# Steps followed
+Dataset Download:
 
+Downloaded the Swiggy food delivery dataset in CSV format from Kaggle.
+
+Data Import:
+
+Opened Power BI Desktop.
+
+Used Get Data → Excel (as the CSV file was stored locally).
+
+Loaded the dataset in Import Mode for faster processing.
+
+Data Transformation (Power Query):
+
+Removed duplicate rows.
+
+Handled missing and null values.
+
+Verified and corrected data types for all columns (Date, Numeric, Text, etc.).
+
+Cleaned and formatted the dataset for consistency.
+
+Data Modeling:
+
+Created a Date Table for time intelligence calculations.
+
+Established relationships between tables using Primary and Foreign Keys.
+
+Built a Star Schema Model to optimize performance and relationships.
+
+DAX Measures:
+
+Created important measures for analysis, including:
+
+AverageOrderValue = 
+DIVIDE(
+    SUM(orders[Total]),  
+    COUNT(orders[food_id]),  
+    0  -- Default value if division by zero
+)
+
+Total Sales = SUM(orders[Total])
 
 
   
