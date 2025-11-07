@@ -67,6 +67,57 @@ The goal of this project is to analyze Swiggy’s food delivery data and develop
 ### 4. DAX Measures
 Created important measures for analysis, including:
 
+**Sales and Order Metrics**
+```DAX
+Total Sales = SUM(orders[Total])
+```
+```DAX
+TotalOrders = COUNT(orders[user_id])
+```
+```DAX
+TotalActiveUsers = DISTINCTCOUNT(orders[user_id])
+```
+```DAX
+AverageOrderValue = 
+DIVIDE(
+    SUM(orders[Total]),  
+    COUNT(orders[food_id]),  
+    0
+)
+```
+**Veg & Non-Veg Analysis**
+```DAX
+VegOrderCount = 
+CALCULATE(
+    COUNT(orders[user_id]),
+    FILTER(orders, RELATED(Food[Veg_NonVeg]) = "Veg")
+)
+```
+```DAX
+NonVegOrderCount = 
+CALCULATE(
+    COUNT(orders[user_id]),
+    FILTER(orders, RELATED(Food[Veg_NonVeg]) = "Non-Veg")
+)
+```
+```DAX
+VegUser = 
+CALCULATE(
+    DISTINCTCOUNT(orders[user_id]),
+    FILTER(orders, RELATED(Food[Veg_NonVeg]) = "Veg")
+)
+```
+```DAX
+NonVegUser = 
+CALCULATE(
+    DISTINCTCOUNT(orders[user_id]),
+    FILTER(orders, RELATED(Food[Veg_NonVeg]) = "Non-veg")
+)
+```
+```DAX
+VegUsersDishes = CALCULATE(COUNTROWS(Food), Food[Veg_NonVeg] = "Veg")
+```
+
 **Average Order Value:**
 ```DAX
 AverageOrderValue = 
@@ -245,5 +296,21 @@ ADDCOLUMNS(
     "Monthnum", MONTH([Date])
 )
 ```
+# Conclusion
 
+The Swiggy Food Delivery Dashboard successfully provides a comprehensive overview of key business metrics and customer insights.
+Through effective data modeling, DAX calculations, and visual storytelling, the dashboard enables stakeholders to:
+
+ - Monitor total sales performance and monthly trends.
+
+ - Identify top-performing restaurants and best-selling food items.
+
+ - Understand customer preferences by comparing Veg vs Non-Veg orders.
+
+ - Evaluate restaurant ratings and satisfaction levels to improve service quality.
+
+ - Analyze city-wise sales for better marketing and operational decisions.
+
+This project demonstrates the power of Power BI in transforming raw data into actionable insights that can guide data-driven decision-making for food delivery businesses.
+It also highlights how DAX measures and a well-designed star schema model can enhance the accuracy, efficiency, and interactivity of business intelligence solutions.
 
