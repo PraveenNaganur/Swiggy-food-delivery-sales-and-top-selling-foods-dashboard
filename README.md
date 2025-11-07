@@ -37,49 +37,44 @@ The goal of this project is to analyze Swiggy’s food delivery data and develop
 
 - DAX – KPI calculations and custom measures
 
-# Steps followed
-1. Dataset Download:
+## Steps Followed
 
-   Downloaded the Swiggy food delivery dataset in CSV format from Kaggle.
+### 1. Dataset Download
+- Downloaded the Swiggy food delivery dataset in **CSV format** from **Kaggle**.
 
-2. Data Import:
+---
 
- Opened Power BI Desktop.
+### 2. Data Import
+- Opened **Power BI Desktop**.  
+- Used **Get Data → Excel** (as the CSV file was stored locally).  
+- Loaded the dataset in **Import Mode** for faster processing.
 
- Used Get Data → Excel (as the CSV file was stored locally).
+**Data Transformation (Power Query):**
+- Removed duplicate rows.  
+- Handled missing and null values.  
+- Verified and corrected data types for all columns (**Date, Numeric, Text**, etc.).  
+- Cleaned and formatted the dataset for consistency.
 
- Loaded the dataset in Import Mode for faster processing.
+---
 
- Data Transformation (Power Query):
+### 3. Data Modeling
+- Created a **Date Table** for time intelligence calculations.  
+- Established relationships between tables using **Primary and Foreign Keys**.  
+- Built a **Star Schema Model** to optimize performance and relationships.
 
- Removed duplicate rows.
+---
 
- Handled missing and null values.
-
- Verified and corrected data types for all columns (Date, Numeric, Text, etc.).
-
- Cleaned and formatted the dataset for consistency.
-
-3. Data Modeling:
-
- Created a Date Table for time intelligence calculations.
-
- Established relationships between tables using Primary and Foreign Keys.
-
- Built a Star Schema Model to optimize performance and relationships.
-
-4. DAX Measures:
-
+### 4. DAX Measures
 Created important measures for analysis, including:
 
+**Average Order Value:**
+```DAX
 AverageOrderValue = 
 DIVIDE(
     SUM(orders[Total]),  
     COUNT(orders[food_id]),  
     0  -- Default value if division by zero
 )
-
-Total Sales = SUM(orders[Total])
 
 
   
