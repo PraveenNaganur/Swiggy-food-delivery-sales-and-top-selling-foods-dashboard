@@ -25,17 +25,17 @@ The goal of this project is to analyze Swiggy’s food delivery data and develop
 
  - **Donut Chart: Active user segmentation based on Veg and Non-Veg orders.**
 
-4. Identify business opportunities by comparing restaurant performance, customer preferences, and sales distribution.
+- Identify business opportunities by comparing restaurant performance, customer preferences, and sales distribution.
 
 # Tools & Technologies
 
-Power BI – Data visualization & dashboard creation
+-Power BI – Data visualization & dashboard creation
 
-Excel / CSV Dataset – Raw Swiggy delivery data
+-Excel / CSV Dataset – Raw Swiggy delivery data
 
-Power Query – Data cleaning and transformation
+-Power Query – Data cleaning and transformation
 
-DAX – KPI calculations and custom measures
+-DAX – KPI calculations and custom measures
 
 # Steps followed
 Dataset Download:
