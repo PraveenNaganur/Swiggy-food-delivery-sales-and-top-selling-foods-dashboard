@@ -44,31 +44,31 @@ The goal of this project is to analyze Swiggy’s food delivery data and develop
 
 2. Data Import:
 
-Opened Power BI Desktop.
+ Opened Power BI Desktop.
 
-Used Get Data → Excel (as the CSV file was stored locally).
+ Used Get Data → Excel (as the CSV file was stored locally).
 
-Loaded the dataset in Import Mode for faster processing.
+ Loaded the dataset in Import Mode for faster processing.
 
-Data Transformation (Power Query):
+ Data Transformation (Power Query):
 
-Removed duplicate rows.
+ Removed duplicate rows.
 
-Handled missing and null values.
+ Handled missing and null values.
 
-Verified and corrected data types for all columns (Date, Numeric, Text, etc.).
+ Verified and corrected data types for all columns (Date, Numeric, Text, etc.).
 
-Cleaned and formatted the dataset for consistency.
+ Cleaned and formatted the dataset for consistency.
 
-Data Modeling:
+3. Data Modeling:
 
-Created a Date Table for time intelligence calculations.
+ Created a Date Table for time intelligence calculations.
 
-Established relationships between tables using Primary and Foreign Keys.
+ Established relationships between tables using Primary and Foreign Keys.
 
-Built a Star Schema Model to optimize performance and relationships.
+ Built a Star Schema Model to optimize performance and relationships.
 
-DAX Measures:
+4. DAX Measures:
 
 Created important measures for analysis, including:
 
