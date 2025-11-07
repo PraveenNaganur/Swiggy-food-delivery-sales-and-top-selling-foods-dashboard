@@ -40,9 +40,9 @@ The goal of this project is to analyze Swiggy’s food delivery data and develop
 # Steps followed
 1. Dataset Download:
 
-Downloaded the Swiggy food delivery dataset in CSV format from Kaggle.
+   Downloaded the Swiggy food delivery dataset in CSV format from Kaggle.
 
-Data Import:
+2. Data Import:
 
 Opened Power BI Desktop.
 
