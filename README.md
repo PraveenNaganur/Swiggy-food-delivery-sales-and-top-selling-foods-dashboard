@@ -9,15 +9,15 @@ The goal of this project is to analyze Swiggy’s food delivery data and develop
 
 2.Display Key Performance Indicators (KPIs) such as:
 
-  Total Sales
+   Total Sales
 
-  Average Order Value (AOV)
+   Average Order Value (AOV)
 
-  Total Restaurants Affiliated
+   Total Restaurants Affiliated
 
-  Active Users
+   Active Users
 
-  Percentage of Veg vs Non-Veg Orders
+   Percentage of Veg vs Non-Veg Orders
   
   3. Provide Visual Insights using:
 
