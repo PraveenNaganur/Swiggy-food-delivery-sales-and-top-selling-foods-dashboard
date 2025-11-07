@@ -13,11 +13,11 @@ The goal of this project is to analyze Swiggy’s food delivery data and develop
   - **Active Users**
   - **Percentage of Veg vs Non-Veg Orders**
   
-  - Provide Visual Insights using:
+- Provide Visual Insights using:
 
-  Bar Chart: Top 10 best-selling food items and bottom 10 least-selling food items.
+   -**Bar Chart: Top 10 best-selling food items and bottom 10 least-selling food items.**
 
-  Line Chart: Monthly Total Sales trend.
+   -Line Chart: Monthly Total Sales trend.
 
   Map Visualization: City-wise distribution of total sales.
 
