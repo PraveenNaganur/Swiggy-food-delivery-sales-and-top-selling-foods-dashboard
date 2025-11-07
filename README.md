@@ -74,8 +74,7 @@ DIVIDE(
     SUM(orders[Total]),  
     COUNT(orders[food_id]),  
     0  -- Default value if division by zero
-)
-
+```
 ** 1. Customer Satisfaction Rate (Weighted)**
 ```DAX
 CustomerSatisfactionRate_Weighted =
