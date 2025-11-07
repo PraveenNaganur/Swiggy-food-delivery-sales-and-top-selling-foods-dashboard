@@ -29,13 +29,13 @@ The goal of this project is to analyze Swiggy’s food delivery data and develop
 
 # Tools & Technologies
 
--Power BI – Data visualization & dashboard creation
+- Power BI – Data visualization & dashboard creation
 
--Excel / CSV Dataset – Raw Swiggy delivery data
+- Excel / CSV Dataset – Raw Swiggy delivery data
 
--Power Query – Data cleaning and transformation
+- Power Query – Data cleaning and transformation
 
--DAX – KPI calculations and custom measures
+- DAX – KPI calculations and custom measures
 
 # Steps followed
 Dataset Download:
