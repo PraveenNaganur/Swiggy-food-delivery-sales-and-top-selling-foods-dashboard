@@ -38,7 +38,7 @@ The goal of this project is to analyze Swiggy’s food delivery data and develop
 - DAX – KPI calculations and custom measures
 
 # Steps followed
-1- Dataset Download:
+1. Dataset Download:
 
 Downloaded the Swiggy food delivery dataset in CSV format from Kaggle.
 
