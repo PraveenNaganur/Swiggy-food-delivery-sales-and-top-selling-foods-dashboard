@@ -93,5 +93,157 @@ DIVIDE(
     SUM(restaurant[rating_count]),
     0
 ) * 100
+```
 
-  
+**Max Sales**
+```DAX
+Max Sales =
+VAR _TotalSales =
+    CALCULATETABLE(
+        ADDCOLUMNS(
+            SUMMARIZE('Date','Date'[Month]),
+            "@TotalSales",[Total Sales]
+        ),
+        ALLSELECTED()
+    )
+VAR _MinValue = MINX(_TotalSales,[@TotalSales])
+VAR _MaxValue = MAXX(_TotalSales,[@TotalSales])
+VAR _TotalOrders = [Total Sales]
+RETURN
+    SWITCH(
+        TRUE(),
+        _TotalOrders = _MinValue, 0,
+        _TotalOrders = _MaxValue, 1
+    )
+```
+
+**Max Value Sales**
+```DAX
+Max value Sales =
+VAR _TotalSales =
+    CALCULATETABLE(
+        ADDCOLUMNS(
+            SUMMARIZE('Date','Date'[Month]),
+            "@TotalSales",[Total Sales]
+        ),
+        ALLSELECTED()
+    )
+VAR _MinValue = MINX(_TotalSales,[@TotalSales])
+VAR _MaxValue = MAXX(_TotalSales,[@TotalSales])
+VAR _TotalOrders = [Total Sales]
+RETURN
+    SWITCH(
+        TRUE(),
+        _TotalOrders = _MinValue,[Total Sales],
+        _TotalOrders = _MaxValue,[Total Sales]
+    )
+```
+
+**Veg vs Non-Veg Measures**
+```DAX
+NonVegOrderCount =
+CALCULATE(
+    COUNT(orders[user_id]),
+    FILTER(orders, RELATED(Food[Veg_NonVeg]) = "Non-Veg")
+)
+
+NonVegUser =
+CALCULATE(
+    DISTINCTCOUNT(orders[user_id]),
+    FILTER(orders, RELATED(Food[Veg_NonVeg]) = "Non-Veg")
+)
+
+VegOrderCount =
+CALCULATE(
+    COUNT(orders[user_id]),
+    FILTER(orders, RELATED(Food[Veg_NonVeg]) = "Veg")
+)
+
+VegUser =
+CALCULATE(
+    DISTINCTCOUNT(orders[user_id]),
+    FILTER(orders, RELATED(Food[Veg_NonVeg]) = "Veg")
+)
+
+VegUsersDishes =
+CALCULATE(
+    COUNTROWS(Food),
+    Food[Veg_NonVeg] = "Veg"
+)
+```
+
+**Restaurant Ranking**
+```DAX
+RestaurantRank =
+RANKX(
+    ALL(restaurant[restaurant_id]),  -- Ignores existing filters
+    CALCULATE(SUM(orders[Total])),
+    ,
+    DESC,
+    DENSE
+)
+
+SalesRankMeasure =
+RANKX(
+    ALL(restaurant),
+    [TotalOrders],
+    ,
+    DESC
+)
+```
+
+**Top 10 Restaurant Sales**
+```DAX
+Top10RestaurantSales =
+VAR RankedRestaurants =
+    ADDCOLUMNS(
+        SUMMARIZE(
+            orders,
+            orders[restaurant_id],
+            "TotalSales", SUM(orders[Total])
+        ),
+        "Rank",
+        RANKX(
+            SUMMARIZE(
+                orders,
+                orders[restaurant_id],
+                "TotalSales", SUM(orders[Total])
+            ),
+            [TotalSales],
+            ,
+            DESC,
+            DENSE
+        )
+    )
+RETURN
+    CALCULATE(
+        SUM(orders[Total]),
+        FILTER(RankedRestaurants, [Rank] <= 10) -- Keeps only the top 10 restaurants
+    )
+```
+
+**Basic Measures**
+```DAX
+Total Sales = SUM(orders[Total])
+TotalActiveUsers = DISTINCTCOUNT(orders[user_id])
+TotalOrders = COUNT(orders[user_id])
+```
+
+**Date Table**
+```DAX
+Date =
+ADDCOLUMNS(
+    CALENDARAUTO(),
+    "Year", YEAR([Date]),
+    "Month", FORMAT([Date], "mmm"),
+    "Weektype",
+        IF(
+            WEEKDAY([Date])=1, "Weekend",
+            IF(WEEKDAY([Date])=7, "Weekend", "Weekdays")
+        ),
+    "Weekday", FORMAT([Date],"ddd"),
+    "Monthnum", MONTH([Date])
+)
+```
+
+
