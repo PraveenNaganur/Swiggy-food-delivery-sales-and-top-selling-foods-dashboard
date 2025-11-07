@@ -76,5 +76,23 @@ DIVIDE(
     0  -- Default value if division by zero
 )
 
+** 1. Customer Satisfaction Rate (Weighted)**
+```DAX
+CustomerSatisfactionRate_Weighted =
+DIVIDE(
+    SUMX(
+        restaurant,
+        SWITCH(
+            TRUE(),
+            restaurant[rating] >= 4.5, restaurant[rating_count] * 1,    -- Highly satisfied (100%)
+            restaurant[rating] >= 4.0, restaurant[rating_count] * 0.8,  -- Satisfied (80%)
+            restaurant[rating] >= 3.5, restaurant[rating_count] * 0.5,  -- Neutral (50%)
+            restaurant[rating] >= 3.0, restaurant[rating_count] * 0.3,  -- Low satisfaction (30%)
+            0                                                           -- Dissatisfied (0%)
+        )
+    ),
+    SUM(restaurant[rating_count]),
+    0
+) * 100
 
   
